@@ -11,15 +11,23 @@
     },
     "devDependencies": {
         "axios": "^0.19",
-        "cross-env": "^5.1",
+        "bootstrap": "^4.0.0",
+        "cross-env": "^5.2.1",
+        "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
+        "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
-        "sass-loader": "^8.0.0",
-        "vue-template-compiler": "^2.6.11"
+        "sass": "^1.20.1",
+        "sass-loader": "7.*",
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "tailwindcss": "^1.2.0-canary.5"
+        "luxon": "^1.21.3",
+        "tailwindcss": "^1.2.0-canary.5",
+        "v-calendar": "^1.0.0-beta.23",
+        "vue-datetime": "^1.0.0-beta.11",
+        "weekstart": "^1.0.1"
     }
 }
