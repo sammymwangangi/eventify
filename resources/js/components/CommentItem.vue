@@ -1,18 +1,18 @@
 <template>
         <div class="w-1/3 px-2 mb-5">
-            <div v-show="state === 'default'" class="max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl">
-                <div class="md:flex-shrink-0 text-green-800">
-                    <p class="text-sm">STARTS: {{event.start_at}}</p>
-                    <p class="text-sm">ENDS: {{event.end_at}}</p><br>
-                    <p class="text-sm">HOST: {{event.owner.name}}</p>
+            <div v-show="state === 'default'" class="max-w-sm w-full lg:max-w-full lg:flex">
+                <div class="shadow-md h-48 lg:h-auto lg:w-48 flex-none overflow-hidden bg-cover bg-gray-600 text-white rounded-t lg:rounded-t-none lg:rounded-l" style="background-image: url('/images/party.svg')" title="party">
+                    <p class="mt-4 text-center text-md"><b>STARTS:</b> {{event.start_at}}</p>
+                    <p class="mt-4 text-center text-md"><b>ENDS:</b> {{event.end_at}}</p>
                 </div>
-                <div class="mt-4 md:mt-0 md:ml-6">
+                <div class="shadow-md border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    <p class="text-sm text-gray-600 flex items-center">By: {{event.owner.name}}</p>
                     <a href="">
-                        <h4 class="tracking-wide text-sm text-blue-600 font-bold leading-tight">{{event.name}}</h4>
+                        <h2 class="tracking-wide text-md text-blue-600 font-bold leading-tight">{{event.name}}</h2>
                     </a>
-                    <h6 class="block mt-1 text-xs text-gray-900 leading-tight">{{event.location}}</h6>
+                    <h6 class="block mt-1 text-xs text-gray-900 leading-tight"><i class="fas fa-map-marker-alt"></i> {{event.location}}</h6>
                     <p class="mt-2 text-xs text-gray-600 leading-normal">{{event.description}}</p>
-                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-2" v-if="editable" @click="state = 'editing'">Edit</button>
+                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-2" v-if="editable" @click="state = 'editing'"><i class="fas fa-edit"></i> Edit</button>
                 </div>
             </div>
             <div v-show="state === 'editing'">

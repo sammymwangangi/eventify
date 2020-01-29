@@ -2124,6 +2124,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -37653,64 +37668,86 @@ var render = function() {
             expression: "state === 'default'"
           }
         ],
-        staticClass: "max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl"
+        staticClass: "max-w-sm w-full lg:max-w-full lg:flex"
       },
       [
-        _c("div", { staticClass: "md:flex-shrink-0 text-green-800" }, [
-          _c("p", { staticClass: "text-sm" }, [
-            _vm._v("STARTS: " + _vm._s(_vm.event.start_at))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-sm" }, [
-            _vm._v("ENDS: " + _vm._s(_vm.event.end_at))
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-sm" }, [
-            _vm._v("HOST: " + _vm._s(_vm.event.owner.name))
-          ])
-        ]),
+        _c(
+          "div",
+          {
+            staticClass:
+              "shadow-md h-48 lg:h-auto lg:w-48 flex-none overflow-hidden bg-cover bg-gray-600 text-white rounded-t lg:rounded-t-none lg:rounded-l",
+            staticStyle: { "background-image": "url('/images/party.svg')" },
+            attrs: { title: "party" }
+          },
+          [
+            _c("p", { staticClass: "mt-4 text-center text-md" }, [
+              _c("b", [_vm._v("STARTS:")]),
+              _vm._v(" " + _vm._s(_vm.event.start_at))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "mt-4 text-center text-md" }, [
+              _c("b", [_vm._v("ENDS:")]),
+              _vm._v(" " + _vm._s(_vm.event.end_at))
+            ])
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "mt-4 md:mt-0 md:ml-6" }, [
-          _c("a", { attrs: { href: "" } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "shadow-md border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+          },
+          [
             _c(
-              "h4",
-              {
-                staticClass:
-                  "tracking-wide text-sm text-blue-600 font-bold leading-tight"
-              },
-              [_vm._v(_vm._s(_vm.event.name))]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "h6",
-            { staticClass: "block mt-1 text-xs text-gray-900 leading-tight" },
-            [_vm._v(_vm._s(_vm.event.location))]
-          ),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "mt-2 text-xs text-gray-600 leading-normal" },
-            [_vm._v(_vm._s(_vm.event.description))]
-          ),
-          _vm._v(" "),
-          _vm.editable
-            ? _c(
-                "button",
+              "p",
+              { staticClass: "text-sm text-gray-600 flex items-center" },
+              [_vm._v("By: " + _vm._s(_vm.event.owner.name))]
+            ),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "" } }, [
+              _c(
+                "h2",
                 {
                   staticClass:
-                    "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-2",
-                  on: {
-                    click: function($event) {
-                      _vm.state = "editing"
-                    }
-                  }
+                    "tracking-wide text-md text-blue-600 font-bold leading-tight"
                 },
-                [_vm._v("Edit")]
+                [_vm._v(_vm._s(_vm.event.name))]
               )
-            : _vm._e()
-        ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "h6",
+              { staticClass: "block mt-1 text-xs text-gray-900 leading-tight" },
+              [
+                _c("i", { staticClass: "fas fa-map-marker-alt" }),
+                _vm._v(" " + _vm._s(_vm.event.location))
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "mt-2 text-xs text-gray-600 leading-normal" },
+              [_vm._v(_vm._s(_vm.event.description))]
+            ),
+            _vm._v(" "),
+            _vm.editable
+              ? _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-2",
+                    on: {
+                      click: function($event) {
+                        _vm.state = "editing"
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-edit" }), _vm._v(" Edit")]
+                )
+              : _vm._e()
+          ]
+        )
       ]
     ),
     _vm._v(" "),
@@ -37920,165 +37957,247 @@ var render = function() {
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.data.name,
-          expression: "data.name"
-        }
-      ],
-      staticClass:
-        "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
-      class: [_vm.state === "editing" ? "h-24" : "h-10"],
-      attrs: { placeholder: "Create Event Name" },
-      domProps: { value: _vm.data.name },
-      on: {
-        focus: _vm.startEditing,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.$set(_vm.data, "name", $event.target.value)
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.data.location,
-          expression: "data.location"
-        }
-      ],
-      staticClass:
-        "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
-      class: [_vm.state === "editing" ? "h-24" : "h-10"],
-      attrs: { placeholder: "Create Event Location" },
-      domProps: { value: _vm.data.location },
-      on: {
-        focus: _vm.startEditing,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.$set(_vm.data, "location", $event.target.value)
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.data.start_at,
-          expression: "data.start_at"
-        }
-      ],
-      staticClass:
-        "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
-      class: [_vm.state === "editing" ? "h-24" : "h-10"],
-      attrs: { placeholder: "Create Event Starting time" },
-      domProps: { value: _vm.data.start_at },
-      on: {
-        focus: _vm.startEditing,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.$set(_vm.data, "start_at", $event.target.value)
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.data.end_at,
-          expression: "data.end_at"
-        }
-      ],
-      staticClass:
-        "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
-      class: [_vm.state === "editing" ? "h-24" : "h-10"],
-      attrs: { placeholder: "Create Event Ending time" },
-      domProps: { value: _vm.data.end_at },
-      on: {
-        focus: _vm.startEditing,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.$set(_vm.data, "end_at", $event.target.value)
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("textarea", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.data.description,
-          expression: "data.description"
-        }
-      ],
-      staticClass:
-        "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
-      class: [_vm.state === "editing" ? "h-24" : "h-10"],
-      attrs: { placeholder: "Create event description" },
-      domProps: { value: _vm.data.description },
-      on: {
-        focus: _vm.startEditing,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.$set(_vm.data, "description", $event.target.value)
-        }
-      }
-    }),
-    _vm._v(" "),
     _c(
       "div",
       {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.state === "editing",
-            expression: "state === 'editing'"
-          }
-        ],
-        staticClass: "mt-3"
+        staticClass:
+          "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2"
       },
       [
-        _c(
-          "button",
-          {
-            staticClass:
-              "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-2",
-            on: { click: _vm.saveEvent }
-          },
-          [_vm._v("Save")]
-        ),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "-mx-3 md:flex mb-6" }, [
+          _c("div", { staticClass: "md:w-1/2 px-3 mb-6 md:mb-0" }, [
+            _c(
+              "label",
+              {
+                staticClass:
+                  "block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2",
+                attrs: { for: "grid-first-name" }
+              },
+              [_vm._v("\n                    Event Name\n                ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.data.name,
+                  expression: "data.name"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+              class: [_vm.state === "editing" ? "h-24" : "h-10"],
+              attrs: { placeholder: "Create Event Name" },
+              domProps: { value: _vm.data.name },
+              on: {
+                focus: _vm.startEditing,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.data, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "md:w-1/2 px-3" }, [
+            _c(
+              "label",
+              {
+                staticClass:
+                  "block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2",
+                attrs: { for: "grid-first-name" }
+              },
+              [_vm._v("\n                    Event Location\n                ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.data.location,
+                  expression: "data.location"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+              class: [_vm.state === "editing" ? "h-24" : "h-10"],
+              attrs: { placeholder: "Create Event Location" },
+              domProps: { value: _vm.data.location },
+              on: {
+                focus: _vm.startEditing,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.data, "location", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "-mx-3 md:flex mb-6" }, [
+          _c("div", { staticClass: "md:w-1/2 px-3" }, [
+            _c(
+              "label",
+              {
+                staticClass:
+                  "block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2",
+                attrs: { for: "grid-first-name" }
+              },
+              [
+                _vm._v(
+                  "\n                    Event Starting Time\n                "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.data.start_at,
+                  expression: "data.start_at"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+              class: [_vm.state === "editing" ? "h-24" : "h-10"],
+              attrs: { placeholder: "Create Event Starting time" },
+              domProps: { value: _vm.data.start_at },
+              on: {
+                focus: _vm.startEditing,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.data, "start_at", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "md:w-1/2 px-3" }, [
+            _c(
+              "label",
+              {
+                staticClass:
+                  "block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2",
+                attrs: { for: "grid-first-name" }
+              },
+              [
+                _vm._v(
+                  "\n                    Event Ending Time\n                "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.data.end_at,
+                  expression: "data.end_at"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+              class: [_vm.state === "editing" ? "h-24" : "h-10"],
+              attrs: { placeholder: "Create Event Ending time" },
+              domProps: { value: _vm.data.end_at },
+              on: {
+                focus: _vm.startEditing,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.data, "end_at", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "-mx-3 md:flex mb-6" }, [
+          _c("div", { staticClass: "md:w-full px-3" }, [
+            _c(
+              "label",
+              {
+                staticClass:
+                  "block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
+              },
+              [_vm._v("\n                    Description\n                ")]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.data.description,
+                  expression: "data.description"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              class: [_vm.state === "editing" ? "h-24" : "h-10"],
+              attrs: { placeholder: "Create event description" },
+              domProps: { value: _vm.data.description },
+              on: {
+                focus: _vm.startEditing,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.data, "description", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
         _vm._v(" "),
         _c(
-          "button",
+          "div",
           {
-            staticClass:
-              "bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded inline-flex items-center mt-2",
-            on: { click: _vm.stopEditing }
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.state === "editing",
+                expression: "state === 'editing'"
+              }
+            ],
+            staticClass: "mt-3"
           },
-          [_vm._v("Cancel")]
+          [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-2",
+                on: { click: _vm.saveEvent }
+              },
+              [_vm._v("Save")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded inline-flex items-center mt-2",
+                on: { click: _vm.stopEditing }
+              },
+              [_vm._v("Cancel")]
+            )
+          ]
         )
       ]
     ),
@@ -38112,7 +38231,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h3", [_vm._v("Create Event")])])
+    return _c("div", [
+      _c(
+        "h2",
+        {
+          staticClass:
+            "text-xl font-bold border-b-2 border-gray-900 text-green-800 ml-2 pl-2 mb-6 text-center"
+        },
+        [_vm._v("Create Event")]
+      )
+    ])
   }
 ]
 render._withStripped = true

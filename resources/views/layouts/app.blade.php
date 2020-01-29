@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-800 font-nunito">
     
