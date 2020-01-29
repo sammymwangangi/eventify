@@ -26,7 +26,7 @@ Vue.use(VCalendar, {
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('comments-manager', require('./components/CommentsManager.vue').default);
-Vue.component('comment', require('./components/CommentItem.vue').default);
+// Vue.component('comment', require('./components/CommentItem.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -30,6 +30,12 @@ Route::get('single-event', function () {
     return view('single-event');
 });
 
+Route::get('/events', 'EventController@index');
+Route::post('/events', 'EventController@store');
+Route::put('/events/{event}', 'EventController@update');
+Route::delete('/events/{event}', 'EventController@destroy');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

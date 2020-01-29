@@ -2095,6 +2095,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2108,60 +2137,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      events: [{
-        id: 1,
-        name: "Baby Shower",
-        location: "Kianjai, Meru Kenya",
-        description: "You have a new message, Read it and give your feedback.",
-        start_at: "MAR 15 SUN 12:06",
-        end_at: "MAR 15 SUN 18:06",
-        edited: false,
-        created_at: new Date().toLocaleString(),
-        owner: {
-          id: 1,
-          name: 'Anderson King'
-        }
-      }, {
-        id: 2,
-        name: "Baby Shower",
-        location: "Kianjai, Meru Kenya",
-        description: "You have a new message, Read it and give your feedback.",
-        start_at: "MAR 15 SUN 12:06",
-        end_at: "MAR 15 SUN 18:06",
-        edited: false,
-        created_at: new Date().toLocaleString(),
-        owner: {
-          id: 2,
-          name: 'Sammy Mwangangi'
-        }
-      }, {
-        id: 3,
-        name: "Baby Shower",
-        location: "Kianjai, Meru Kenya",
-        description: "You have a new message, Read it and give your feedback.",
-        start_at: "MAR 15 SUN 12:06",
-        end_at: "MAR 15 SUN 18:06",
-        edited: false,
-        created_at: new Date().toLocaleString(),
-        owner: {
-          id: 3,
-          name: 'Joy Floh'
-        }
-      }, {
-        id: 4,
-        name: "Baby Shower",
-        location: "Kianjai, Meru Kenya",
-        description: "You have a new message, Read it and give your feedback.",
-        start_at: "MAR 15 SUN 12:06",
-        end_at: "MAR 15 SUN 18:06",
-        edited: false,
-        created_at: new Date().toLocaleString(),
-        owner: {
-          id: 3,
-          name: 'Joy Floh'
-        }
-      }]
+      state: 'default',
+      data: {
+        description: ''
+      },
+      events: []
     };
+  },
+  created: function created() {
+    this.fetchEvents();
   },
   methods: {
     startEditing: function startEditing() {
@@ -2199,35 +2183,13 @@ __webpack_require__.r(__webpack_exports__);
         t.events.splice(t.eventIndex($event.id), 1);
       });
     },
-    // saveEvent() {
-    //     const t = this;
-    //     axios.post('/events', t.data)
-    //     .then(({data}) => {
-    //         t.events.unshift(data);
-    //         t.stopEditing();
-    //     })
-    // },
     saveEvent: function saveEvent() {
-      var newEvent = {
-        id: this.events[this.events.length - 1].id + 1,
-        name: this.data.name,
-        location: this.data.location,
-        start_at: this.data.start_at,
-        end_at: this.data.end_at,
-        description: this.data.description,
-        edited: false,
-        created_at: new Date().toLocaleString(),
-        owner: {
-          id: this.user.id,
-          name: this.user.name
-        }
-      };
-      this.events.push(newEvent);
-      this.data.name = '';
-      this.data.location = '';
-      this.data.start_at = '';
-      this.data.end_at = '';
-      this.data.description = '';
+      var t = this;
+      axios.post('/events', t.data).then(function (_ref3) {
+        var data = _ref3.data;
+        t.events.unshift(data);
+        t.stopEditing();
+      });
     },
     eventIndex: function eventIndex(eventId) {
       return this.events.findIndex(function (element) {
@@ -37971,9 +37933,11 @@ var render = function() {
       ],
       staticClass:
         "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+      class: [_vm.state === "editing" ? "h-24" : "h-10"],
       attrs: { placeholder: "Create Event Name" },
       domProps: { value: _vm.data.name },
       on: {
+        focus: _vm.startEditing,
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -37994,9 +37958,11 @@ var render = function() {
       ],
       staticClass:
         "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+      class: [_vm.state === "editing" ? "h-24" : "h-10"],
       attrs: { placeholder: "Create Event Location" },
       domProps: { value: _vm.data.location },
       on: {
+        focus: _vm.startEditing,
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -38017,9 +37983,11 @@ var render = function() {
       ],
       staticClass:
         "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+      class: [_vm.state === "editing" ? "h-24" : "h-10"],
       attrs: { placeholder: "Create Event Starting time" },
       domProps: { value: _vm.data.start_at },
       on: {
+        focus: _vm.startEditing,
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -38040,9 +38008,11 @@ var render = function() {
       ],
       staticClass:
         "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-4",
+      class: [_vm.state === "editing" ? "h-24" : "h-10"],
       attrs: { placeholder: "Create Event Ending time" },
       domProps: { value: _vm.data.end_at },
       on: {
+        focus: _vm.startEditing,
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -38063,9 +38033,11 @@ var render = function() {
       ],
       staticClass:
         "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+      class: [_vm.state === "editing" ? "h-24" : "h-10"],
       attrs: { placeholder: "Create event description" },
       domProps: { value: _vm.data.description },
       on: {
+        focus: _vm.startEditing,
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -38075,35 +38047,50 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("div", [
-      _c(
-        "button",
-        {
-          staticClass:
-            "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-2",
-          on: { click: _vm.saveEvent }
-        },
-        [_vm._v("Save")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded inline-flex items-center mt-2",
-          on: { click: _vm.resetEdit }
-        },
-        [_vm._v("Cancel")]
-      )
-    ]),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.state === "editing",
+            expression: "state === 'editing'"
+          }
+        ],
+        staticClass: "mt-3"
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-2",
+            on: { click: _vm.saveEvent }
+          },
+          [_vm._v("Save")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-teal-300 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded inline-flex items-center mt-2",
+            on: { click: _vm.stopEditing }
+          },
+          [_vm._v("Cancel")]
+        )
+      ]
+    ),
     _vm._v(" "),
-    _c("div", { staticClass: "px-2" }, [
+    _c("div", { staticClass: "mt-4 px-2" }, [
       _c(
         "div",
         { staticClass: "md:flex flex-wrap -mx-2" },
-        _vm._l(_vm.events, function(event) {
+        _vm._l(_vm.events, function(event, index) {
           return _c("event", {
             key: event.id,
+            class: [index === _vm.events.length - 1 ? "" : "mb-6"],
             attrs: { user: _vm.user, event: event },
             on: {
               "event-updated": function($event) {
@@ -50376,8 +50363,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_calendar__WEBPACK_IMPORTED_MODU
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('comments-manager', __webpack_require__(/*! ./components/CommentsManager.vue */ "./resources/js/components/CommentsManager.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('comment', __webpack_require__(/*! ./components/CommentItem.vue */ "./resources/js/components/CommentItem.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('comments-manager', __webpack_require__(/*! ./components/CommentsManager.vue */ "./resources/js/components/CommentsManager.vue")["default"]); // Vue.component('comment', require('./components/CommentItem.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
