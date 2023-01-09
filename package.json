@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0",
-        "luxon": "^1.21.3",
+        "luxon": "^1.28.1",
         "tailwindcss": "^1.2.0-canary.5",
         "v-calendar": "^1.0.0-beta.23",
         "vue-datetime": "^1.0.0-beta.11",
